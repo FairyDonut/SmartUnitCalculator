@@ -1,0 +1,65 @@
+﻿@page
+@model SmartUnitCalculator.Pages.Shared.UserModel
+@{
+    ViewData["Title"] = "User - Smart Unit Calculator";
+}
+
+@if (@User.Identity.IsAuthenticated){
+<h1 class="mb-5">Witaj @User.Identity.Name</h1>
+} else {
+    <div class="container">
+        <div class="row">
+             <a class="btn btn-primary" asp-page="/LogIn">Zaloguj się</a>
+        </div>
+        <div class="row">
+            <a class="btn btn-primary" asp-page="Regster">Zarejestruj się</a>
+        </div>
+    </div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+        <h3 class="text-center">Procent wyszukiwań Twoich jednostek</h3>
+        <table class="table text-white table-responsive mb-4">
+        @foreach (var stats in Model.Statistics.LoginUserUnitTypesSearch)
+        {
+            <tr>
+            <td>@stats.Key.Name</td>
+            <td>@stats.Value %</td>
+            </tr>
+        }
+        </table>
+        <h3 class="text-center">Procent wyszukiwań jednostek wszystkich użytkowników</h3>
+         <table class="table text-white table-responsive mb-4">
+        @foreach (var stats in Model.Statistics.AllUsersUnitTypesSearch)
+        {
+            <tr>
+            <td>@stats.Key.Name</td>
+            <td>@stats.Value %</td>
+            </tr>
+        }
+        </table>
+       <h3 class="text-center">Twoja historia wyszukiwań</h3>
+       <table class="table text-white table-responsive mb-4">
+        @foreach (var history in Model.Statistics.History)
+        {
+            <tr>     
+               <td>@history.Created</td> 
+                <td>@history.BaseUnit</td>  
+                <td>@history.BaseValue</td>  
+                <td>@history.ResultUnit</td> 
+                <td>@history.ResultValue</td> 
+            </tr>
+        }
+        </table>
+        </div>
+           <div class="col-sm-4 text-end">
+            <h3 class="mb-3">Ustawienia użytkownika </h3>
+            <form method="post">
+                <div class="mr-5 mb-3"><button asp-page="ChangePassword" class="btn btn-primary mr-4">Zmień hasło</button></div>
+                <div class="mr-5 mb-3"><button asp-page-handler="Logout" class="btn btn-primary mr-2">Wyloguj się</button></div>
+            </form>
+        </div>     
+</div>
+</div>

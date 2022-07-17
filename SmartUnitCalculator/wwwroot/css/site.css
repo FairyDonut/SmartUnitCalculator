@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #3c4252;
+    color:white;
+}
+
+header {
+    box-shadow: 0 0.1rem 0.8rem black;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+.row_style{
+    width:50%;
+}
+
+p{
+    color:white;
+}

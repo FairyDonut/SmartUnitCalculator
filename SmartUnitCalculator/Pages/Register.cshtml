@@ -1,0 +1,31 @@
+﻿@page
+@model SmartUnitCalculator.Pages.RegisterModel
+@{
+}
+
+<h1>Zarejestruj się</h1>
+
+<form method="post">
+<table class="table text-white table align-middle" >
+    <tr>
+        <td>Nazwa użytkownika:</td>
+        <td><input type="text" class="form-control" asp-for="Register.Login"/></td>
+        <span class="text-danger" asp-validation-for="Register.Login" ></span>
+    </tr>
+    <tr>
+        <td>Hasło:</td>
+        <td><input type="password" class="form-control" asp-for="Register.Password"/></td>
+        <span class="text-danger" asp-validation-for="Register.Password" ></span>
+    </tr>
+    <tr>
+        <td>Podaj hasło ponownie:</td>
+        <td><input type="password" class="form-control" asp-for="Register.PasswordCheck"/></td>
+        <span class="text-danger" asp-validation-for="Register.PasswordCheck" ></span>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="Zarejestruj się" class="btn btn-primary px-5"/></td>
+    </tr>
+    <p class="text-danger">@Model.Information</p>
+    </table>
+</form>

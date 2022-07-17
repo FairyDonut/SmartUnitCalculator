@@ -1,0 +1,26 @@
+﻿@page
+@model SmartUnitCalculator.Pages.LogInModel
+@{
+}
+
+<h1>Zaloguj się</h1>
+
+<form method="post">
+    <table class="table text-white table align-middle" >
+        <tr>
+            <td style="width:25%;">Nazwa użytkownika:</td>
+            <td style="width: 75%;"><input type="text" asp-for="Login.Login" class="form-control"/></td>
+            <span class="text-danger" asp-validation-for="Login.Login" ></span>
+        </tr>
+        <tr>
+            <td style="width:25%;">Hasło:</td>
+            <td style="width: 75%;"><input type="password" asp-for="Login.Password" class="form-control"/></td>
+            <span class="text-danger" asp-validation-for="Login.Password"></span>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Login" class="btn btn-primary px-5" /></td>
+        </tr>
+        <p class="text-danger">@Model.Information</p>
+    </table>
+</form>
